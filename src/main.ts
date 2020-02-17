@@ -1,4 +1,4 @@
-import { enableProdMode, TRANSLATIONS, TRANSLATIONS_FORMAT } from '@angular/core';
+import { enableProdMode, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
@@ -22,10 +22,11 @@ console.log(translations);
 setTimeout(some => { platformBrowserDynamic().bootstrapModule(AppModule, {
   providers: [
     { provide: TRANSLATIONS, useValue: translations },
-    { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' }
+    { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' },
+    { provide: LOCALE_ID, useValue: locale}
   ]
 })
-  .catch(err => console.error(err));}, 10000);
+  .catch(err => console.error(err));}, 5000);
  
 
 });
