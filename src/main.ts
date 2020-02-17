@@ -17,7 +17,8 @@ new LocaleServicePromise().getLocale().then((locale: string) => {
 
   // we use the webpack raw-loader to return the content as a string
   const translations = require(`raw-loader!./locale/messages-${locale}.xlf`).default;
-
+console.log(locale);
+console.log(translations);
   platformBrowserDynamic().bootstrapModule(AppModule, {
     providers: [
       { provide: TRANSLATIONS, useValue: translations },
